@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazytube example</title>
+  </head>
+  <body>
+    <h2>Video:</h2>
+    <iframe
+        class="lazytube"
+        data-poster="https://img.youtube.com/vi/otCp0CjTX3s/maxresdefault.jpg"
+        data-src="https://www.youtube-nocookie.com/embed/otCp0CjTX3s?autoplay=1"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+    ></iframe>
+
+    <script type="application/javascript" src="lazytube.js"></script>
+    <script type="application/javascript">
+        var myLazytube = new Lazytube({
+            hintText: 'My own hint',
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            textColor: '#fff'
+        });
+    </script>
+  </body>
+</html>
