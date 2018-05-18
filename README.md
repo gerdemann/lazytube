@@ -38,6 +38,10 @@ var myLazytube = new Lazytube({
 });
 ```
 
+### Example
+
+See `example.html` or this [CodePen](https://codepen.io/anon/pen/xjmLNa/)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
