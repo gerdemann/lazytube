@@ -6,11 +6,7 @@ With this script it is possible to load YouTube videos at the click of a button.
 
 ## Usage
 
-Insert the `lazytube.js` in before your closing body tag:
-
-```
-<script type="application/javascript" src="lazytube.js"></script>
-```
+#### HTML
 
 And embed the YouTube video with a `data-src` instead of a `src` attribute and an extra `data-poster`-Attrbute:
 ```
@@ -24,6 +20,14 @@ And embed the YouTube video with a `data-src` instead of a `src` attribute and a
 ></iframe>
 ```
 
+#### JavaScript
+
+Insert the `lazytube.js` in before your closing body tag:
+
+```
+<script type="application/javascript" src="lazytube.js"></script>
+```
+
 Then you can create an instance of it:
 ```
 var myLazytube = new Lazytube();
@@ -32,13 +36,29 @@ var myLazytube = new Lazytube();
 Optionally, you can pass options:
 ```
 var myLazytube = new Lazytube({
+    selector: '.lazytube',
     hintText: 'My own hint',
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    textColor: '#fff'
+    textColor: '#fff',
+    ownStyles: false
 });
 ```
 
-### Example
+### Options
+
+For every instance of _Lazytube_ you can pass in some options, to alter its default behaviour.
+Here's the list of the options.
+
+| Name | Meaning | Default value |
+| ---- | ----| ---- |
+| `selector` | The selector to find the iFrame(s). | `.lazytube` |
+| `hintText` | Der Hinweistext, dass das YouTube-iFrame geladen wird und damit Cookies gesetzt werden | `'To activate the video, click here'` |
+| `backgroundColor` | The background color of the overlay | `rgba(0, 0, 0, 0.6)` |
+| `textColor` | The text color of the note text. | `#ffffff` |
+| `ownStyles` | Set to `true` if you want to use your own CSS styles. | `false` |
+
+
+## Demo / Example
 
 See `example.html` or this [CodePen](https://codepen.io/anon/pen/xjmLNa/)
 

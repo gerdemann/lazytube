@@ -7,9 +7,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
     var getInstanceSettings = function getInstanceSettings(customSettings) {
         var defaultSettings = {
-            hintText: "To activate the video, click here",
+            selector: '.lazytube',
+            hintText: 'To activate the video, click here',
             backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            textColor: '#fff'
+            textColor: '#fff',
+            ownStyles: false
         };
 
         return _extends({}, defaultSettings, customSettings);
@@ -43,33 +45,39 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         init: function() {
             var settings = this._settings;
 
-            var iframes = document.querySelectorAll('.lazytube');
+            var iframes = document.querySelectorAll(settings.selector);
             iframes.forEach(function(iframe){
                 var clonedIframe = iframe.cloneNode();
                 clonedIframe.style.display = 'none';
                 clonedIframe.style.position = 'absolute';
-                clonedIframe.style.top = '0';
-                clonedIframe.style.left = '0';
-                clonedIframe.style.width = '100%';
-                clonedIframe.style.height = '100%';
+                if (settings.ownStyles === false) {
+                    clonedIframe.style.top = '0';
+                    clonedIframe.style.left = '0';
+                    clonedIframe.style.width = '100%';
+                    clonedIframe.style.height = '100%';
+                }
                 
                 var lazytubeWrapper = document.createElement('div');
                 lazytubeWrapper.className = 'lazytube-wrapper';
                 lazytubeWrapper.style.position = 'relative';
-                lazytubeWrapper.style.width = '100%';
-                lazytubeWrapper.style.paddingBottom = '56.25%';
-                lazytubeWrapper.style.paddingTop = '0';
-                lazytubeWrapper.style.height = '0';
-                lazytubeWrapper.style.overflow = 'hidden';
+                if (settings.ownStyles === false) {
+                    lazytubeWrapper.style.width = '100%';
+                    lazytubeWrapper.style.paddingBottom = '56.25%';
+                    lazytubeWrapper.style.paddingTop = '0';
+                    lazytubeWrapper.style.height = '0';
+                    lazytubeWrapper.style.overflow = 'hidden';
+                }
     
                 var lazytubePoster = document.createElement('img');
                 lazytubePoster.className = 'lazytube-poster';
                 lazytubePoster.style.position = 'relative';
                 lazytubePoster.style.zIndex = '1';
                 lazytubePoster.style.display = 'block';
-                lazytubePoster.style.width = '100%';
-                lazytubePoster.style.height = 'auto';
-                lazytubePoster.setAttribute('src', iframe.getAttribute('data-poster'));
+                if (settings.ownStyles === false) {
+                    lazytubePoster.style.width = '100%';
+                    lazytubePoster.style.height = 'auto';
+                }
+                lazytubePoster.setAttribute('src', clonedIframe.getAttribute('data-poster'));
                 
                 var lazytubeHintWrapper = document.createElement('div');
                 lazytubeHintWrapper.className = 'lazytube-hint';
@@ -78,10 +86,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 lazytubeHintWrapper.style.top = '0';
                 lazytubeHintWrapper.style.width = '100%';
                 lazytubeHintWrapper.style.height = '100%';
-                lazytubeHintWrapper.style.textAlign = 'center';
+                lazytubeHintWrapper.style.cursor = 'pointer';
                 lazytubeHintWrapper.style.background = settings.backgroundColor;
                 lazytubeHintWrapper.style.color = settings.textColor;
-                lazytubeHintWrapper.style.cursor = 'pointer';
                 lazytubeHintWrapper.addEventListener('click', function() {
                     lazytubeHintWrapper.style.display = 'none';
                     lazytubePoster.style.display = 'none';
@@ -91,12 +98,16 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     
                 var lazytubeHint = document.createElement('span');
                 lazytubeHint.innerHTML = settings.hintText
-                lazytubeHint.style.display = 'inline-block';
-                lazytubeHint.style.padding = '0 10%';
-                lazytubeHint.style.margin = '0';
-                lazytubeHint.style.position = 'relative';
-                lazytubeHint.style.top = '50%';
-                lazytubeHint.style.transform = 'translateY(-50%)';
+                if (settings.ownStyles === false) {
+                    lazytubeHint.style.display = 'inline-block';
+                    lazytubeHint.style.width = '80%';
+                    lazytubeHint.style.padding = '0 10%';
+                    lazytubeHint.style.margin = '0';
+                    lazytubeHint.style.position = 'relative';
+                    lazytubeHint.style.top = '50%';
+                    lazytubeHint.style.transform = 'translateY(-50%)';
+                    lazytubeHint.style.textAlign = 'center';
+                }
     
                 lazytubeHintWrapper.appendChild(lazytubeHint);
     

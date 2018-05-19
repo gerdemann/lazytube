@@ -6,7 +6,7 @@
     <title>Lazytube example</title>
   </head>
   <body>
-    <h2>Video:</h2>
+    <h1>Video:</h1>
     <iframe
         class="lazytube"
         data-poster="https://img.youtube.com/vi/otCp0CjTX3s/maxresdefault.jpg"
@@ -19,9 +19,11 @@
     <script type="application/javascript" src="lazytube.js"></script>
     <script type="application/javascript">
         var myLazytube = new Lazytube({
+            selector: '.lazytube',
             hintText: 'My own hint',
             backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            textColor: '#fff'
+            textColor: '#fff',
+            ownStyles: false
         });
     </script>
   </body>
