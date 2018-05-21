@@ -2,8 +2,6 @@
 
 With this script it is possible to load YouTube videos at the click of a button.
 
-**Still work in progress. Feedback and pull requests are welcome.**
-
 ## Usage
 
 #### HTML
