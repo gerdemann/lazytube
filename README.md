@@ -12,7 +12,7 @@ And embed the YouTube video with a `data-src` instead of a `src` attribute and a
 ```
 <iframe
     class="lazytube"
-    data-poster="https://img.youtube.com/vi/otCp0CjTX3s/maxresdefault.jpg"
+    data-poster="./previewImageProxy.php?youtubeid=otCp0CjTX3s"
     data-src="https://www.youtube-nocookie.com/embed/otCp0CjTX3s?autoplay=1"
     frameborder="0"
     allow="autoplay; encrypted-media"
@@ -56,6 +56,13 @@ Here's the list of the options.
 | `backgroundColor` | The background color of the overlay | `rgba(0, 0, 0, 0.6)` |
 | `textColor` | The text color of the note text. | `#ffffff` |
 | `ownStyles` | Set to `true` if you want to use your own CSS styles. | `false` |
+
+### Preview image proxy
+
+To not load the preview image directly from YouTube and thus reveal the IP address of the user, you can simply use a small proxy script.
+Just put the [previewImageProxy.php](previewImageProxy.php) script on your own server and put `www.my-domain.com/previewImageProxy.php?youtubeid=MyYYouTubeId` as poster path.
+
+Alternatively, you can configure your own web server (e.g. NGINX or Apache) as a proxy for the preview images.
 
 
 ## Demo / Example
