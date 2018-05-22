@@ -1,7 +1,7 @@
 {
   "name": "lazytube",
   "description": "With this script it is possible to load YouTube videos at the click of a button.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "main": "lazytube.min.js",
   "scripts": {},
